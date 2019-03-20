@@ -67,6 +67,6 @@ export default class ReactTimeRuler extends Component {
     }
 }
 
-const RNScrollRuler = requireNativeComponent('RNScrollRuler', ReactScrollRuler, {
+const RNScrollRuler = requireNativeComponent('RNTimeRuler', ReactTimeRuler, {
     nativeOnly: {onSelect: true}
 });

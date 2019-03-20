@@ -52,7 +52,7 @@ RCT_EXPORT_VIEW_PROPERTY(onSelect, RCTBubblingEventBlock)
 }
 
 #pragma RCTTimeRulerDelegate
--(void)dyScrollRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value{
+-(void)trTimeRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value{
     rulerView.onSelect(@{@"value": @((int)value)});
 }
 

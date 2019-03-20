@@ -24,11 +24,11 @@
 /**
  *  绘制三角形标示
  */
-@interface DYTriangleView : UIView
+@interface TRTriangleView : UIView
 @property(nonatomic,strong)UIColor *triangleColor;
 
 @end
-@implementation DYTriangleView
+@implementation TRTriangleView
 
 -(void)drawRect:(CGRect)rect{
     //设置背景颜色
@@ -67,9 +67,9 @@
 @end
 
 
-/***************DY************分************割************线***********/
+/***************TR************分************割************线***********/
 
-@interface DYRulerView : UIView
+@interface TRRulerView : UIView
 
 @property (nonatomic,assign)NSInteger betweenNumber;
 @property (nonatomic,assign)int minValue;
@@ -77,7 +77,7 @@
 @property (nonatomic,assign)float step;
 
 @end
-@implementation DYRulerView
+@implementation TRRulerView
 
 -(void)drawRect:(CGRect)rect{
     CGFloat startX = 0;
@@ -112,15 +112,15 @@
 @end
 
 
-/***************DY************分************割************线***********/
+/***************TR************分************割************线***********/
 
-@interface DYHeaderRulerView : UIView
+@interface TRHeaderRulerView : UIView
 
 @property(nonatomic,assign)int minValue;
 
 @end
 
-@implementation DYHeaderRulerView
+@implementation TRHeaderRulerView
 
 -(void)drawRect:(CGRect)rect{
     
@@ -151,12 +151,12 @@
 
 
 
-/***************DY************分************割************线***********/
-@interface DYFooterRulerView : UIView
+/***************TR************分************割************线***********/
+@interface TRFooterRulerView : UIView
 
 @property(nonatomic,assign)int maxValue;
 @end
-@implementation DYFooterRulerView
+@implementation TRFooterRulerView
 
 -(void)drawRect:(CGRect)rect{
     CGFloat longLineY = rect.size.height - RulerShort;
@@ -176,7 +176,7 @@
 
 @end
 
-/***************DY************分************割************线***********/
+/***************TR************分************割************线***********/
 
 @interface RCTTimeRuler()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -184,7 +184,7 @@
 @property(nonatomic, strong)UILabel         *unitLab;
 @property(nonatomic, strong)UICollectionView*collectionView;
 @property(nonatomic, strong)UIView          *grayLine;
-@property(nonatomic, strong)DYTriangleView  *triangle;
+@property(nonatomic, strong)TRTriangleView  *triangle;
 @property(nonatomic, assign)int           realValue;
 @property(nonatomic, assign)int           stepNum;//分多少个区
 @property(nonatomic, assign)int           minValue;//游标的最小值
@@ -329,12 +329,12 @@
     return _grayLine;
 }
 
--(DYTriangleView *)triangle{
+-(TRTriangleView *)triangle{
     if (!_triangle) {
-        //        _triangle = [[DYTriangleView alloc]initWithFrame:CGRectMake(self.bounds.size.width/2-0.5-TrangleWidth/2, CGRectGetMaxY(_valueLab.frame), TrangleWidth, TrangleWidth)];
+        //        _triangle = [[TRTriangleView alloc]initWithFrame:CGRectMake(self.bounds.size.width/2-0.5-TrangleWidth/2, CGRectGetMaxY(_valueLab.frame), TrangleWidth, TrangleWidth)];
         //        _triangle.backgroundColor   = [UIColor clearColor];
         //        _triangle.triangleColor     = _triangleColor;
-        _triangle = [[DYTriangleView alloc]initWithFrame:CGRectMake(self.bounds.size.width/2-0.5, CGRectGetMaxY(_valueLab.frame), 1, RulerLong)];
+        _triangle = [[TRTriangleView alloc]initWithFrame:CGRectMake(self.bounds.size.width/2-0.5, CGRectGetMaxY(_valueLab.frame), 1, RulerLong)];
         _triangle.backgroundColor   = [UIColor clearColor];
         _triangle.triangleColor     = _triangleColor;
     }
@@ -417,9 +417,9 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.item == 0){
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"headCell" forIndexPath:indexPath];
-        DYHeaderRulerView *headerView = [cell.contentView viewWithTag:1000];
+        TRHeaderRulerView *headerView = [cell.contentView viewWithTag:1000];
         if (!headerView){
-            headerView = [[DYHeaderRulerView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width/2, CollectionHeight)];
+            headerView = [[TRHeaderRulerView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width/2, CollectionHeight)];
             headerView.backgroundColor  =  [UIColor clearColor];
             headerView.tag              =  1000;
             headerView.minValue         = _minValue;
@@ -429,9 +429,9 @@
         return cell;
     }else if( indexPath.item == _stepNum +1){
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"footerCell" forIndexPath:indexPath];
-        DYFooterRulerView *footerView = [cell.contentView viewWithTag:1001];
+        TRFooterRulerView *footerView = [cell.contentView viewWithTag:1001];
         if (!footerView){
-            footerView = [[DYFooterRulerView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width/2, CollectionHeight)];
+            footerView = [[TRFooterRulerView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width/2, CollectionHeight)];
             footerView.backgroundColor  = [UIColor clearColor];
             footerView.tag              = 1001;
             footerView.maxValue         = _maxValue;
@@ -441,9 +441,9 @@
         return cell;
     }else{
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"custemCell" forIndexPath:indexPath];
-        DYRulerView *rulerView = [cell.contentView viewWithTag:1002];
+        TRRulerView *rulerView = [cell.contentView viewWithTag:1002];
         if (!rulerView){
-            rulerView  = [[DYRulerView alloc]initWithFrame:CGRectMake(0, 0, RulerGap*_betweenNum, CollectionHeight)];
+            rulerView  = [[TRRulerView alloc]initWithFrame:CGRectMake(0, 0, RulerGap*_betweenNum, CollectionHeight)];
             rulerView.tag               = 1002;
             rulerView.step              = _step;
             rulerView.betweenNumber     = _betweenNum;
@@ -488,8 +488,8 @@
     int value = scrollView.contentOffset.x/RulerGap;
     float totalValue = value*_step +_minValue;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dyScrollRulerView:valueChange:)]) {
-        [self.delegate dyScrollRulerView:self valueChange:totalValue];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(trTimeRulerView:valueChange:)]) {
+        [self.delegate trTimeRulerView:self valueChange:totalValue];
     }
     
     if (_scrollByHand) {

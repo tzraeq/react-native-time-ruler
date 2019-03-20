@@ -17,7 +17,7 @@
  *  滑动视图
  *  当前滑动的值
  */
--(void)dyScrollRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value;
+-(void)trTimeRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value;
 
 @end
 @interface RCTTimeRuler : UIView
