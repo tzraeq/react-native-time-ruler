@@ -1,15 +1,15 @@
 {
-  "name": "react-native-scroll-ruler",
+  "name": "react-native-time-ruler",
   "version": "1.2.1",
-  "description": "ReactNative版选择身高体重的横向刻度尺组件，兼容Android和iOS",
+  "description": "ReactNative版时间轴，兼容Android和iOS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-native",
-    "react-native-scroll-ruler"
+    "react-native-time-ruler"
   ],
-  "author": "shenhuniurou",
+  "author": "tzraeq",
   "license": "MIT"
 }

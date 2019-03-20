@@ -12,7 +12,7 @@ type PropsType = {
 } & typeof
 (View);
 
-export default class ReactScrollRuler extends Component {
+export default class ReactTimeRuler extends Component {
     static propTypes = {
         minValue: PropTypes.number.isRequired,
         maxValue: PropTypes.number.isRequired,

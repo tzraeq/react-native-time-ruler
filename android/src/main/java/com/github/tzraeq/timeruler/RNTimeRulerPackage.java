@@ -1,4 +1,4 @@
-package com.shenhuniurou.scrollruler;
+package com.github.tzraeq.timeruler;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -11,13 +11,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author shenhuniurou
- * @email shenhuniurou@gmail.com
- * @date 2018/5/22 23:55
+ * @author tzraeq
+ * @email tzraeq@163.com
  * @description
  */
 
-public class RNScrollRulerPackage implements ReactPackage {
+public class RNTimeRulerPackage implements ReactPackage {
 
 
     @Override
@@ -33,7 +32,7 @@ public class RNScrollRulerPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new RNScrollRulerManager()
+                new RNTimeRulerManager()
         );
     }
 

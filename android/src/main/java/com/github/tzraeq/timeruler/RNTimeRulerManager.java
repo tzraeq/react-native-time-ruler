@@ -1,4 +1,4 @@
-package com.shenhuniurou.scrollruler;
+package com.github.tzraeq.timeruler;
 
 import android.view.View;
 
@@ -12,15 +12,14 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import javax.annotation.Nullable;
 
 /**
- * @author shenhuniurou
- * @email shenhuniurou@gmail.com
- * @date 2018/5/23 01:18
+ * @author tzraeq
+ * @email tzraeq@163.com
  * @description
  */
 
-public class RNScrollRulerManager extends SimpleViewManager {
+public class RNTimeRulerManager extends SimpleViewManager {
 
-    public static final String REACT_CLASS = "RNScrollRuler";
+    public static final String REACT_CLASS = "RNTimeRuler";
 
     @Override
     public String getName() {
@@ -29,8 +28,8 @@ public class RNScrollRulerManager extends SimpleViewManager {
 
     @Override
     protected View createViewInstance(final ThemedReactContext reactContext) {
-        final RNScrollRuler ruler = new RNScrollRuler(reactContext);
-        ruler.setOnChooseResulterListener(new RNScrollRuler.OnChooseResulterListener() {
+        final RNTimeRuler ruler = new RNTimeRuler(reactContext);
+        ruler.setOnChooseResulterListener(new RNTimeRuler.OnChooseResulterListener() {
             @Override
             public void onEndResult(String result) {
                 WritableMap event = Arguments.createMap();
@@ -47,32 +46,32 @@ public class RNScrollRulerManager extends SimpleViewManager {
     }
 
     @ReactProp(name = "minValue")
-    public void setMinValue(RNScrollRuler ruler, @Nullable int minValue) {
+    public void setMinValue(RNTimeRuler ruler, @Nullable int minValue) {
         ruler.setMinScale(minValue);
     }
 
     @ReactProp(name = "maxValue")
-    public void setMaxValue(RNScrollRuler ruler, @Nullable int maxValue) {
+    public void setMaxValue(RNTimeRuler ruler, @Nullable int maxValue) {
         ruler.setMaxScale(maxValue);
     }
 
     @ReactProp(name = "defaultValue")
-    public void setDefaultValue(RNScrollRuler ruler, @Nullable int defaultValue) {
+    public void setDefaultValue(RNTimeRuler ruler, @Nullable int defaultValue) {
         ruler.setFirstScale(defaultValue);
     }
 
     @ReactProp(name = "unit")
-    public void setUnit(RNScrollRuler ruler, @Nullable String unit) {
+    public void setUnit(RNTimeRuler ruler, @Nullable String unit) {
         ruler.setUnit(unit);
     }
 
     @ReactProp(name = "step")
-    public void setStep(RNScrollRuler ruler, @Nullable float step) {
+    public void setStep(RNTimeRuler ruler, @Nullable float step) {
         ruler.setScaleLimit((int)(step * 10));
     }
 
     @ReactProp(name = "num")
-    public void setNum(RNScrollRuler ruler, @Nullable int num) {
+    public void setNum(RNTimeRuler ruler, @Nullable int num) {
         ruler.setScaleCount(num);
     }
 

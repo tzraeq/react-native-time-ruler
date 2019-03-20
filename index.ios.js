@@ -12,7 +12,7 @@ type PropsType = {
 } & typeof
 (View);
 
-export default class RNScrollRuler extends Component {
+export default class RNTimeRuler extends Component {
     static propTypes = {
         minValue: PropTypes.number.isRequired,
         maxValue: PropTypes.number.isRequired,
@@ -67,4 +67,4 @@ export default class RNScrollRuler extends Component {
     }
 }
 
-const RCTScrollRuler = requireNativeComponent('RCTScrollRuler', null);
+const RCTScrollRuler = requireNativeComponent('RCTTimeRuler', null);

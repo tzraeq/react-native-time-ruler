@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "65373D5620AA8B88008AA28A"
-               BuildableName = "libRCTScrollRuler.a"
-               BlueprintName = "RCTScrollRuler"
-               ReferencedContainer = "container:RCTScrollRuler.xcodeproj">
+               BuildableName = "libRCTTimeRuler.a"
+               BlueprintName = "RCTTimeRuler"
+               ReferencedContainer = "container:RCTTimeRuler.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "65373D5620AA8B88008AA28A"
-            BuildableName = "libRCTScrollRuler.a"
-            BlueprintName = "RCTScrollRuler"
-            ReferencedContainer = "container:RCTScrollRuler.xcodeproj">
+            BuildableName = "libRCTTimeRuler.a"
+            BlueprintName = "RCTTimeRuler"
+            ReferencedContainer = "container:RCTTimeRuler.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "65373D5620AA8B88008AA28A"
-            BuildableName = "libRCTScrollRuler.a"
-            BlueprintName = "RCTScrollRuler"
-            ReferencedContainer = "container:RCTScrollRuler.xcodeproj">
+            BuildableName = "libRCTTimeRuler.a"
+            BlueprintName = "RCTTimeRuler"
+            ReferencedContainer = "container:RCTTimeRuler.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

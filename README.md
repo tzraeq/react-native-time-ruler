@@ -1,5 +1,5 @@
 # react-native-scroll-ruler
-ReactNative版滑动刻度尺,兼容Android和iOS。
+ReactNative版时间,兼容Android和iOS。
 
 ## Gifs
 ![](https://github.com/shenhuniurou/react-native-scroll-ruler/blob/master/scroll-ruler-ios.gif)
@@ -11,15 +11,15 @@ ReactNative版滑动刻度尺,兼容Android和iOS。
 
 Step 1:
 
-`npm i react-native-scroll-ruler --save`
+`npm i react-native-time-ruler --save`
 
 or 
 
-`yarn add react-native-scroll-ruler`
+`yarn add react-native-time-ruler`
 
 Step 2:
 
-`react-native link react-native-scroll-ruler`
+`react-native link react-native-time-ruler`
 
 That's all!
 
@@ -28,9 +28,9 @@ That's all!
 #### Simple
 
 ```javascript
-import RNScrollRuler from 'react-native-scroll-ruler';
+import RNScrollRuler from 'react-native-time-ruler';
 
-<RNScrollRuler 
+<RNTimeRuler 
 	style={{width: Util.size.width - 20, height: 100, backgroundColor: '#fff'}}
    	ref={(view) => {
    	}}
@@ -43,10 +43,10 @@ import RNScrollRuler from 'react-native-scroll-ruler';
    	onSelect={(value) => {
     	this.setState({weight: value});
    	}}
-></RNScrollRuler>
+></RNTimeRuler>
 
 
-<RNScrollRuler 
+<RNTimeRuler 
 	style={{width: Util.size.width - 20, height: 100, backgroundColor: '#fff'}}
    	ref={(view) => {
    	}}
@@ -59,7 +59,7 @@ import RNScrollRuler from 'react-native-scroll-ruler';
    	onSelect={(value) => {
     	this.setState({height: value});
    	}}
-></RNScrollRuler>
+></RNTimeRuler>
 ```
 
 #### Props
@@ -84,4 +84,4 @@ import RNScrollRuler from 'react-native-scroll-ruler';
 
 #### License
 
-[MIT](https://github.com/shenhuniurou/react-native-scroll-ruler/blob/master/LICENSE)
+[MIT](https://github.com/tzraeq/react-native-time-ruler/blob/master/LICENSE)

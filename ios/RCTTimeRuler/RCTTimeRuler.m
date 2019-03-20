@@ -1,6 +1,6 @@
 //
-//  RCTScrollRuler.m
-//  RCTScrollRuler
+//  RCTTimeRuler.m
+//  RCTTimeRuler
 //
 //  Created by shenhuniurou on 2018/5/11.
 //  Copyright © 2018年 shenhuniurou. All rights reserved.
@@ -19,7 +19,7 @@
 #define TrangleWidth    16
 #define CollectionHeight 70
 
-#import "RCTScrollRuler.h"
+#import "RCTTimeRuler.h"
 
 /**
  *  绘制三角形标示
@@ -178,7 +178,7 @@
 
 /***************DY************分************割************线***********/
 
-@interface RCTScrollRuler()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface RCTTimeRuler()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong)UILabel         *valueLab;
 @property(nonatomic, strong)UILabel         *unitLab;
@@ -195,7 +195,7 @@
 @property (nonatomic,assign)int defaultValue;
 @property (nonatomic,assign)int num;
 @end
-@implementation RCTScrollRuler
+@implementation RCTTimeRuler
 
 - (void)setMinValue:(int)minValue {
     NSLog(@"设置最小值");

@@ -1,4 +1,4 @@
-package com.shenhuniurou.scrollruler;
+package com.github.tzraeq.timeruler;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -21,13 +21,12 @@ import java.lang.ref.WeakReference;
 import java.math.BigDecimal;
 
 /**
- * @author shenhuniurou
- * @email shenhuniurou@gmail.com
- * @date 2018/5/23 02:10
+ * @author tzraeq
+ * @email tzraeq@163.com
  * @description
  */
 
-public class RNScrollRuler extends View {
+public class RNTimeRuler extends View {
     private static final String TAG = "RulerView";
     /**
      * 2个大刻度之间间距，默认为1
@@ -173,15 +172,15 @@ public class RNScrollRuler extends View {
     private int rightScroll;
     private int xVelocity;
 
-    public RNScrollRuler(Context context) {
+    public RNTimeRuler(Context context) {
         this(context, null);
     }
 
-    public RNScrollRuler(Context context, @Nullable AttributeSet attrs) {
+    public RNTimeRuler(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RNScrollRuler(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RNTimeRuler(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setAttr(attrs, defStyleAttr);
         init();

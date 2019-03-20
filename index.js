@@ -1,9 +1,9 @@
 import { Platform } from "react-native";
-import RNScrollRulerIOS from "./index.ios.js";
-import RNScrollRulerAndroid from "./index.android.js";
+import RNTimeRulerIOS from "./index.ios.js";
+import RNTimeRulerAndroid from "./index.android.js";
 
 const RNScrollRuler = Platform.OS === "ios"
-  ? RNScrollRulerIOS
-  : RNScrollRulerAndroid;
+  ? RNTimeRulerIOS
+  : RNTimeRulerAndroid;
 
-export default RNScrollRuler;
+export default RNTimeRuler;

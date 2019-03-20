@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65373D7B20AA8BB5008AA28A /* RCTScrollRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = 65373D6520AA8BB4008AA28A /* RCTScrollRuler.m */; };
-		65373D7C20AA8BB5008AA28A /* RCTScrollRulerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65373D6620AA8BB4008AA28A /* RCTScrollRulerManager.m */; };
+		65373D7B20AA8BB5008AA28A /* RCTTimeRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = 65373D6520AA8BB4008AA28A /* RCTTimeRuler.m */; };
+		65373D7C20AA8BB5008AA28A /* RCTTimeRulerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65373D6620AA8BB4008AA28A /* RCTTimeRulerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +24,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		65373D5720AA8B88008AA28A /* libRCTScrollRuler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTScrollRuler.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		65373D6520AA8BB4008AA28A /* RCTScrollRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTScrollRuler.m; sourceTree = "<group>"; };
-		65373D6620AA8BB4008AA28A /* RCTScrollRulerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTScrollRulerManager.m; sourceTree = "<group>"; };
-		65373D7020AA8BB5008AA28A /* RCTScrollRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTScrollRuler.h; sourceTree = "<group>"; };
-		65373D7220AA8BB5008AA28A /* RCTScrollRulerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTScrollRulerManager.h; sourceTree = "<group>"; };
+		65373D5720AA8B88008AA28A /* libRCTTimeRuler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTTimeRuler.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		65373D6520AA8BB4008AA28A /* RCTTimeRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTTimeRuler.m; sourceTree = "<group>"; };
+		65373D6620AA8BB4008AA28A /* RCTTimeRulerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTTimeRulerManager.m; sourceTree = "<group>"; };
+		65373D7020AA8BB5008AA28A /* RCTTimeRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTTimeRuler.h; sourceTree = "<group>"; };
+		65373D7220AA8BB5008AA28A /* RCTTimeRulerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTTimeRulerManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 		65373D4E20AA8B88008AA28A = {
 			isa = PBXGroup;
 			children = (
-				65373D5920AA8B88008AA28A /* RCTScrollRuler */,
+				65373D5920AA8B88008AA28A /* RCTTimeRuler */,
 				65373D5820AA8B88008AA28A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,28 +53,28 @@
 		65373D5820AA8B88008AA28A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65373D5720AA8B88008AA28A /* libRCTScrollRuler.a */,
+				65373D5720AA8B88008AA28A /* libRCTTimeRuler.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		65373D5920AA8B88008AA28A /* RCTScrollRuler */ = {
+		65373D5920AA8B88008AA28A /* RCTTimeRuler */ = {
 			isa = PBXGroup;
 			children = (
-				65373D7020AA8BB5008AA28A /* RCTScrollRuler.h */,
-				65373D6520AA8BB4008AA28A /* RCTScrollRuler.m */,
-				65373D7220AA8BB5008AA28A /* RCTScrollRulerManager.h */,
-				65373D6620AA8BB4008AA28A /* RCTScrollRulerManager.m */,
+				65373D7020AA8BB5008AA28A /* RCTTimeRuler.h */,
+				65373D6520AA8BB4008AA28A /* RCTTimeRuler.m */,
+				65373D7220AA8BB5008AA28A /* RCTTimeRulerManager.h */,
+				65373D6620AA8BB4008AA28A /* RCTTimeRulerManager.m */,
 			);
-			path = RCTScrollRuler;
+			path = RCTTimeRuler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65373D5620AA8B88008AA28A /* RCTScrollRuler */ = {
+		65373D5620AA8B88008AA28A /* RCTTimeRuler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65373D6020AA8B88008AA28A /* Build configuration list for PBXNativeTarget "RCTScrollRuler" */;
+			buildConfigurationList = 65373D6020AA8B88008AA28A /* Build configuration list for PBXNativeTarget "RCTTimeRuler" */;
 			buildPhases = (
 				65373D5320AA8B88008AA28A /* Sources */,
 				65373D5420AA8B88008AA28A /* Frameworks */,
@@ -84,9 +84,9 @@
 			);
 			dependencies = (
 			);
-			name = RCTScrollRuler;
-			productName = RCTScrollRuler;
-			productReference = 65373D5720AA8B88008AA28A /* libRCTScrollRuler.a */;
+			name = RCTTimeRuler;
+			productName = RCTTimeRuler;
+			productReference = 65373D5720AA8B88008AA28A /* libRCTTimeRuler.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 65373D5220AA8B88008AA28A /* Build configuration list for PBXProject "RCTScrollRuler" */;
+			buildConfigurationList = 65373D5220AA8B88008AA28A /* Build configuration list for PBXProject "RCTTimeRuler" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65373D5620AA8B88008AA28A /* RCTScrollRuler */,
+				65373D5620AA8B88008AA28A /* RCTTimeRuler */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65373D7B20AA8BB5008AA28A /* RCTScrollRuler.m in Sources */,
-				65373D7C20AA8BB5008AA28A /* RCTScrollRulerManager.m in Sources */,
+				65373D7B20AA8BB5008AA28A /* RCTTimeRuler.m in Sources */,
+				65373D7C20AA8BB5008AA28A /* RCTTimeRulerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +275,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65373D5220AA8B88008AA28A /* Build configuration list for PBXProject "RCTScrollRuler" */ = {
+		65373D5220AA8B88008AA28A /* Build configuration list for PBXProject "RCTTimeRuler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65373D5E20AA8B88008AA28A /* Debug */,
@@ -284,7 +284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65373D6020AA8B88008AA28A /* Build configuration list for PBXNativeTarget "RCTScrollRuler" */ = {
+		65373D6020AA8B88008AA28A /* Build configuration list for PBXNativeTarget "RCTTimeRuler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65373D6120AA8B88008AA28A /* Debug */,

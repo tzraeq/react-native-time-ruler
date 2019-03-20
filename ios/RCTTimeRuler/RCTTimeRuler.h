@@ -1,6 +1,6 @@
 //
-//  RCTScrollRuler.h
-//  RCTScrollRuler
+//  RCTTimeRuler.h
+//  RCTTimeRuler
 //
 //  Created by shenhuniurou on 2018/5/11.
 //  Copyright © 2018年 shenhuniurou. All rights reserved.
@@ -9,22 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <React/RCTComponent.h>
 
-@class RCTScrollRuler;
-@protocol RCTScrollRulerDelegate <NSObject>
+@class RCTTimeRuler;
+@protocol RCTTimeRulerDelegate <NSObject>
 
 /*
  *  游标卡尺滑动，对应value回调
  *  滑动视图
  *  当前滑动的值
  */
--(void)dyScrollRulerView:(RCTScrollRuler *)rulerView valueChange:(float)value;
+-(void)dyScrollRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value;
 
 @end
-@interface RCTScrollRuler : UIView
+@interface RCTTimeRuler : UIView
 
 @property (nonatomic, copy) RCTBubblingEventBlock onSelect;
 
-@property(nonatomic,weak)id<RCTScrollRulerDelegate> delegate;
+@property(nonatomic,weak)id<RCTTimeRulerDelegate> delegate;
 
 //滑动时是否改变textfield值
 @property(nonatomic, assign)BOOL scrollByHand;
