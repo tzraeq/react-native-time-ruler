@@ -25,26 +25,36 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_VIEW_PROPERTY(minValue, int);
-
-RCT_EXPORT_VIEW_PROPERTY(maxValue, int);
-
-RCT_EXPORT_VIEW_PROPERTY(step, float);
+RCT_EXPORT_VIEW_PROPERTY(startTime, NSDate);
+RCT_EXPORT_VIEW_PROPERTY(endTime, NSDate);
 
 RCT_EXPORT_VIEW_PROPERTY(defaultValue, int);
+RCT_EXPORT_VIEW_PROPERTY(time, int);
+RCT_EXPORT_VIEW_PROPERTY(bgColor, UIColor);
 
-RCT_EXPORT_VIEW_PROPERTY(num, int);
+//RCT_EXPORT_VIEW_PROPERTY(rulerStyle,NSDictionary);
+RCT_EXPORT_VIEW_PROPERTY(rangeData,NSArray);
 
-RCT_EXPORT_VIEW_PROPERTY(unit, NSString);
+RCT_EXPORT_VIEW_PROPERTY(indicatorColor, UIColor);
+RCT_EXPORT_VIEW_PROPERTY(indicatorWidth, float);
+RCT_EXPORT_VIEW_PROPERTY(indicatorHeight, float);
 
-RCT_EXPORT_VIEW_PROPERTY(onSelect, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(tickColor, UIColor);
+RCT_EXPORT_VIEW_PROPERTY(tickWidth, float);
+
+RCT_EXPORT_VIEW_PROPERTY(longTickHeight, float);
+RCT_EXPORT_VIEW_PROPERTY(mediumTickHeight, float);
+RCT_EXPORT_VIEW_PROPERTY(shortTickHeight, float);
+
+RCT_EXPORT_VIEW_PROPERTY(unitWidth, float);
+
+RCT_EXPORT_VIEW_PROPERTY(onScrollling, RCTBubblingEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onScrollEnd, RCTBubblingEventBlock);
 
 - (UIView *)view
 {
     
-    CGFloat rullerHeight = [RCTTimeRuler rulerViewHeight];
-    _noneZeroRullerView = [[RCTTimeRuler alloc]initWithFrame:CGRectMake(10, 0, ScreenWidth-20, rullerHeight) theMinValue:0 theMaxValue:0  theStep:1.0 theNum:10 theUnit:@""];
-    _noneZeroRullerView.bgColor = [UIColor whiteColor];
+    _noneZeroRullerView = [[RCTTimeRuler alloc]init];
     _noneZeroRullerView.delegate        = self;
     _noneZeroRullerView.scrollByHand    = YES;
     
@@ -53,7 +63,15 @@ RCT_EXPORT_VIEW_PROPERTY(onSelect, RCTBubblingEventBlock)
 
 #pragma RCTTimeRulerDelegate
 -(void)trTimeRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value{
-    rulerView.onSelect(@{@"value": @((int)value)});
+    if(rulerView.onScrollEnd){
+        rulerView.onScrollling(@{@"value": @((int)value)});
+    }
+}
+
+-(void)trTimeRulerView:(RCTTimeRuler *)rulerView finalValue:(float)value{
+    if(rulerView.onScrollEnd){
+        rulerView.onScrollEnd(@{@"value": @((int)value)});
+    }
 }
 
 @end
