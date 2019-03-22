@@ -23,16 +23,13 @@
 @end
 @interface RCTTimeRuler : UIView
 
-@property (nonatomic, copy) RCTBubblingEventBlock onScrollling;
+@property (nonatomic, copy) RCTBubblingEventBlock onScrolling;
 @property (nonatomic, copy) RCTBubblingEventBlock onScrollEnd;
 
 @property(nonatomic,weak)id<RCTTimeRulerDelegate> delegate;
 
 //滑动时是否改变textfield值
 @property(nonatomic, assign)BOOL scrollByHand;
-
-//背景颜色
-@property(nonatomic,strong)UIColor *bgColor;
 
 -(instancetype)initWithValues:(float)minValue theMaxValue:(float)maxValue theStep:(float)step theNum:(NSInteger)betweenNum theUnit:unit;
 

@@ -83,7 +83,7 @@ typedef enum
 
 /***************TR************分************割************线***********/
 
-@interface TRRulerView : UIView
+@interface TRRulerUnitView : UIView
 
 @property (nonatomic,assign)NSInteger betweenNumber;
 @property (nonatomic,assign)int minValue;
@@ -103,7 +103,7 @@ typedef enum
 @property (nonatomic,assign)float level;
 
 @end
-@implementation TRRulerView
+@implementation TRRulerUnitView
 
 -(void)drawRect:(CGRect)rect{
     NSLog(@"hour: %d",_hour);
@@ -344,13 +344,13 @@ typedef enum
 
 @property(nonatomic, strong)UICollectionView*collectionView;
 @property(nonatomic, strong)TRIndicatorView  *indicator;
-@property(nonatomic, assign)int           realValue;
 
 @property(nonatomic, strong)NSDate*           startTime;
 @property(nonatomic, strong)NSDate*           endTime;
+@property(nonatomic, assign)double time;
 
-@property(nonatomic,assign)int defaultValue;
-@property(nonatomic,assign)int num;
+@property(nonatomic,strong)UIColor *bgColor;
+
 @property(nonatomic,strong)UIColor *indicatorColor;
 @property(nonatomic,assign)float indicatorHeight;
 @property(nonatomic,assign)float indicatorWidth;
@@ -375,7 +375,7 @@ typedef enum
     _indicatorWidth = 1;
     _indicatorHeight = 40;
     
-    _bgColor = [UIColor clearColor];
+    _bgColor = [UIColor whiteColor];
     _tickColor          = [UIColor blackColor];
     _tickWidth         = 0.5;
     _longTickHeight         = 20; //0.4rem
@@ -397,41 +397,49 @@ typedef enum
 - (void)addSubViews{
     [self addSubview:self.collectionView];
     [self addSubview:self.indicator];
-    [self setDefaultValue:_defaultValue];
 }
 
 - (void)setTickColor:(UIColor*)tickColor{
     _tickColor = tickColor;
 }
 
-//- (void) setStartTime:(NSDate*)startTime {
-//    _startTime = [[NSDate alloc]initWithTimeIntervalSince1970:startTime/1000.0];
-//}
-//
-//- (void) setEndTime:(NSDate*)endTime {
-//    _endTime = endTime;//[[NSDate alloc]initWithTimeIntervalSince1970:endTime/1000.0];
-//}
+- (void) setStartTime:(NSDate*)startTime {
+    NSLog(@"设置开始时间");
+    _startTime = startTime;
+}
 
-- (void)setDefaultValue:(int)defaultValue {
-    NSLog(@"设置默认值");
-    _defaultValue      = defaultValue;
-//    if (_maxValue != 0) {
-//        [self setRealValue:defaultValue];
-//        [_collectionView setContentOffset:CGPointMake(((defaultValue-_minValue)/(float)_step)*RulerGap, 0) animated:YES];
-//    }
-    NSLog(@"setDefaultValue被调用了，defaultValue=%d", defaultValue);
+- (void) setEndTime:(NSDate*)endTime {
+    NSLog(@"设置结束时间");
+    _endTime = endTime;//[[NSDate alloc]initWithTimeIntervalSince1970:endTime/1000.0];
+}
+
+- (void)setTime:(double)time {
+    NSLog(@"设置时间");
+    _time      = time;
+    //    if (_maxValue != 0) {
+    //        [self setRealValue:defaultValue];
+    //        [_collectionView setContentOffset:CGPointMake(((defaultValue-_minValue)/(float)_step)*RulerGap, 0) animated:YES];
+    //    }
+    NSLog(@"setTime被调用了，setTime=%f", time);
 }
 
 - (void) setRangeData:(NSArray*) rangeData{
     _rangeData = rangeData;
 }
 
+-(void)setBgColor:(UIColor *)bgColor{
+    _bgColor = bgColor;
+    _collectionView.backgroundColor = _bgColor;
+}
+
+-(void)setIndicatorColor:(UIColor *)indicatorColor{
+    _indicatorColor = indicatorColor;
+    _indicator.indicatorColor = _indicatorColor;
+}
+
 -(TRIndicatorView *)indicator{
     CGRect frame = CGRectMake(self.center.x - _indicatorWidth / 2, (self.bounds.size.height - _indicatorHeight) / 2, _indicatorWidth, _indicatorHeight);
     if (!_indicator) {
-        //        _indicator = [[TRIndicatorView alloc]initWithFrame:CGRectMake(self.bounds.size.width/2-0.5-TrangleWidth/2, CGRectGetMaxY(_valueLab.frame), TrangleWidth, TrangleWidth)];
-        //        _indicator.backgroundColor   = [UIColor clearColor];
-        //        _indicator.indicatorColor     = _indicatorColor;
         _indicator = [[TRIndicatorView alloc]initWithFrame:frame];
         _indicator.backgroundColor   = [UIColor clearColor];
         _indicator.indicatorColor     = _indicatorColor;
@@ -489,25 +497,16 @@ typedef enum
         
         hours = 1 + (etime - stime) / 3600;
         
-        
+//        _collectionView.contentInset = UIEdgeInsetsMake(0, -50, 0, 0);
 //        _collectionView.contentSize     = CGSizeMake(contentLen + headerWidth + footerWidth, self.bounds.size.height);//需要根据时间计算长度
 
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"headCell"];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"footerCell"];
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"custemCell"];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"unitCell"];
     }else{
         [_collectionView setFrame:frame];
     }
     return _collectionView;
-}
-
--(void)setBgColor:(UIColor *)bgColor{
-    _bgColor = bgColor;
-    _collectionView.backgroundColor = _bgColor;
-}
--(void)setIndicatorColor:(UIColor *)indicatorColor{
-    _indicatorColor = indicatorColor;
-    _indicator.indicatorColor = _indicatorColor;
 }
 
 -(float)getStartViewWidth{
@@ -585,8 +584,8 @@ typedef enum
         
         return cell;
     }else{
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"custemCell" forIndexPath:indexPath];
-        TRRulerView *view = [cell.contentView viewWithTag:1002];
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"unitCell" forIndexPath:indexPath];
+        TRRulerUnitView *view = [cell.contentView viewWithTag:1002];
         float width = _unitWidth;
         UnitAlign align = UnitAlignLeft;
         if(1 == indexPath.item){
@@ -598,7 +597,7 @@ typedef enum
         
         CGRect frame = CGRectMake(0, 0, width, self.bounds.size.height);
         if (!view){
-            view  = [[TRRulerView alloc]initWithFrame:frame];
+            view  = [[TRRulerUnitView alloc]initWithFrame:frame];
             view.tag               = 1002;
             
             view.align = align;

@@ -28,8 +28,7 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_VIEW_PROPERTY(startTime, NSDate);
 RCT_EXPORT_VIEW_PROPERTY(endTime, NSDate);
 
-RCT_EXPORT_VIEW_PROPERTY(defaultValue, int);
-RCT_EXPORT_VIEW_PROPERTY(time, int);
+RCT_EXPORT_VIEW_PROPERTY(time, double);
 RCT_EXPORT_VIEW_PROPERTY(bgColor, UIColor);
 
 //RCT_EXPORT_VIEW_PROPERTY(rulerStyle,NSDictionary);
@@ -48,7 +47,7 @@ RCT_EXPORT_VIEW_PROPERTY(shortTickHeight, float);
 
 RCT_EXPORT_VIEW_PROPERTY(unitWidth, float);
 
-RCT_EXPORT_VIEW_PROPERTY(onScrollling, RCTBubblingEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onScrolling, RCTBubblingEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onScrollEnd, RCTBubblingEventBlock);
 
 - (UIView *)view
@@ -63,15 +62,11 @@ RCT_EXPORT_VIEW_PROPERTY(onScrollEnd, RCTBubblingEventBlock);
 
 #pragma RCTTimeRulerDelegate
 -(void)trTimeRulerView:(RCTTimeRuler *)rulerView valueChange:(float)value{
-    if(rulerView.onScrollEnd){
-        rulerView.onScrollling(@{@"value": @((int)value)});
-    }
+    rulerView.onScrolling(@{@"value": @((int)value)});
 }
 
 -(void)trTimeRulerView:(RCTTimeRuler *)rulerView finalValue:(float)value{
-    if(rulerView.onScrollEnd){
-        rulerView.onScrollEnd(@{@"value": @((int)value)});
-    }
+    rulerView.onScrollEnd(@{@"value": @((int)value)});
 }
 
 @end

@@ -3,24 +3,19 @@ import PropTypes from 'prop-types';
 import {requireNativeComponent, View, ViewPropTypes} from 'react-native';
 
 type PropsType = {
-    minValue?: number;
-    maxValue?: number;
-    step?: number;
-    defaultValue?: number;
-    num?: number;
-    unit?: string;
+    startTime?: number;
+    endTime?: number;
+    time?: number;
 } & typeof
 (View);
 
 export default class RNTimeRuler extends Component {
     static propTypes = {
-        minValue: PropTypes.number.isRequired,
-        maxValue: PropTypes.number.isRequired,
-        step: PropTypes.number.isRequired,
-        defaultValue: PropTypes.number.isRequired,
-        num: PropTypes.number.isRequired,
-        unit: PropTypes.string,
-        onSelect: PropTypes.func,
+        startTime: PropTypes.number.isRequired,
+        endTime: PropTypes.number.isRequired,
+        time: PropTypes.number,
+        onScroll: PropTypes.func,
+        onScrollEnd: PropTypes.func,
         ...ViewPropTypes,
     };
     props: PropsType;
@@ -30,22 +25,32 @@ export default class RNTimeRuler extends Component {
         this.rulerRef.setNativeProps(props);
     }
 
-    _onSelect = (event) => {
-        if (!this.props.onSelect) {
+    _onScroll = (event) => {
+        let {onScroll} = this.props;
+        if (!onScroll) {
             return;
         }
-        this.props.onSelect(event.nativeEvent.value);
+        onScroll(event.nativeEvent.time);
+    }
+
+    _onScrollEnd = (event) => {
+        let {onScrollEnd} = this.props;
+        if (!onScrollEnd) {
+            return;
+        }
+        onScrollEnd(event.nativeEvent.time);
     }
 
     render() {
         const {
-            minValue,
-            maxValue,
-            step,
+            startTime,
+            endTime,
             defaultValue,
-            num,
-            unit,
-            onSelect,
+            time,
+            onScroll,
+            onScrollEnd,
+            tickColor,
+            bgColor,
             ...otherProps
         } = this.props;
 
@@ -54,13 +59,13 @@ export default class RNTimeRuler extends Component {
                 ref={(component) => {
                     this.rulerRef = component;
                 }}
-                minValue={minValue}
-                maxValue={maxValue}
-                step={step}
-                defaultValue={defaultValue}
-                num={num}
-                unit={unit}
-                onSelect={this._onSelect}
+                startTime={startTime}
+                endTime={endTime}
+                time={time}
+                bgColor={bgColor}
+                tickColor={tickColor}
+                onScrolling={this._onScroll}
+                onScrollEnd={this._onScrollEnd}
                 {...otherProps}
             />
         );
